@@ -7,7 +7,7 @@ module.exports = (sequelize) => {
     id: {
       type: DataTypes.UUID,
       primaryKey: true,
-      autoincrement: DataTypes.UUIDV4,
+      defaultValue: DataTypes.UUIDV4,
       allowNull: false,
     },
     name: {
@@ -15,19 +15,19 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
     image: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
     height: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    weight:{
+    weight: {
       type: DataTypes.STRING,
-      allowNull: false
+      allowNull: false,
     },
-    life_span:{
-      type: DataTypes.STRING
-    }
+    life_span: {
+      type: DataTypes.STRING,
+    },
   });
 };
