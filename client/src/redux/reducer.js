@@ -1,4 +1,4 @@
-import { GET_DOGS, GET_TEMPERAMENTS } from "./types"
+import { GET_DOG, GET_DOGS, GET_TEMPERAMENTS } from "./types"
 
 const initialState = {
     dogs: [],
@@ -21,6 +21,11 @@ function rootReducer(state = initialState, {type, payload}){
                 temeperaments: [...state.temeperaments, payload]
 
             };
+        case GET_DOG:
+            return{
+                ...state,
+                dogs: payload
+            }
         default:
             return state
     }

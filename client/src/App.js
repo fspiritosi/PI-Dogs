@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./App.css";
 import {Route, Switch} from 'react-router-dom'
 import LandingPage from "./pages/LandingPage";
-import axios from "axios";
+import Home from './pages/Home.jsx'
 import { useDispatch } from 'react-redux';
 import {getDogs, getTemperaments} from './redux/actions.js'
 
@@ -41,7 +41,7 @@ function App() {
           <LandingPage />
         </Route>
         <Route path="/home" >
-          <h1>Hola mundo</h1>
+          <Home/>
         </Route> 
       </Switch>
     </div>
