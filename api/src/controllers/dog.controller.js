@@ -49,10 +49,6 @@ const createDog = async (req, res) => {
     const apiDogs = await getDogsApi();
     const dbDogs = await getDogsDB();
     const allDogs = [...apiDogs, ...dbDogs];
-    // let temperamentDB = await Temperament.findAll({
-    //   where: { name: temperament },
-    // });
-    // console.log(temperamentDB);
 
     if(allDogs.find((e) => e.name.replace(/\s+/g, "").toLowerCase() === name.replace(/\s+/g, "").toLowerCase())) {
       res.status(400).json({message: "The Dog allready exist"})

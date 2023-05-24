@@ -3,7 +3,10 @@ import {NavLink} from 'react-router-dom'
 import  styles from '../styles/LandingPage.module.css'
 
 
+
 function LandingPage() {
+
+  
   return (
     <div className={styles.container}>
       <div className={styles.navigate}>

@@ -1,40 +1,36 @@
-import React, { useState } from 'react';
-import {useDispatch } from 'react-redux';
-import {getDogs} from '../redux/actions.js'
-function SearchBar() {
-  
+import React, {useState} from 'react'
+import { useDispatch } from 'react-redux'
+import { getDogsByName } from '../redux/actions.js'
+
+
+
+
+function Searchbar() {
+
   const dispatch = useDispatch()
-  const [name, setName] = useState('');
 
+  const [name, setName] = useState('')
 
-  const handleInputChange = (event) => {
-    event.preventDefault();
-    setName(event.target.value);
-    
+  const handleInputChange = (e) => {
+    e.preventDefault()
+    setName(e.target.value)
   }
-  const getDogsData = async (name) => {
-    const response = await fetch(`http://localhost:3001/dogs?name=${name}`)
 
-    const responseJSON = await response.json();
-    dispatch(getDogs(responseJSON))
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    dispatch(getDogsByName(name))
+    setName('')
 
   }
-    const handleSubmit = (event) => {
-    event.preventDefault();
-    getDogsData()
-  }
-    // Aquí es donde manejarías la búsqueda, por ejemplo, enviando la consulta de búsqueda a un servidor o filtrando datos locales.
-  
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Find:
-        <input type="text" value={name} onChange={handleInputChange} />
-      </label>
-      <button type="submit">Find</button>
-    </form>
-  );
+    <div>
+      <form onSubmit={(e) => handleSubmit(e)}>
+        <input type="text" placeholder='Search...' value={name} onChange={(e) => handleInputChange(e)}/>
+        <button>Find</button>
+      </form>
+    </div>
+  )
 }
 
-export default SearchBar;
+export default Searchbar
