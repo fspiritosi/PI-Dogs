@@ -52,7 +52,6 @@ const getDogsDB = async () => {
         const refactoringDogData = allDbDogs.map((dog) => {
 
             const dogTemp = dog.temperaments
-            console.log(dogTemp)
             const temperamentDog = dogTemp?.map(e => {return e.name})
 
             return {

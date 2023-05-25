@@ -1,8 +1,8 @@
-import { GET_DOGS, GET_TEMPERAMENTS, GET_DOGS_BY_NAME, FILTER_BY_ORIGIN } from './types.js'
+import { GET_DOGS, GET_TEMPERAMENTS, GET_DOGS_BY_NAME, FILTER_BY_ORIGIN, FILTER_BY_TEMPERAMENT } from './types.js'
 const initialState = {
     dogs: [],
     allDogs: [],
-    temeperaments: []
+    temperaments: []
 }
 
 function rootReducer(state = initialState, {type, payload}){
@@ -16,7 +16,7 @@ function rootReducer(state = initialState, {type, payload}){
         case GET_TEMPERAMENTS:
             return {
               ...state,
-              temeperaments: payload,
+              temperaments: payload,
             };
         case GET_DOGS_BY_NAME:
             return {
@@ -25,6 +25,11 @@ function rootReducer(state = initialState, {type, payload}){
             }
         case FILTER_BY_ORIGIN:
             return {
+                ...state,
+                dogs: [...payload]
+            }
+        case FILTER_BY_TEMPERAMENT: 
+            return{
                 ...state,
                 dogs: [...payload]
             }

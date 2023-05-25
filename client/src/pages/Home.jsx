@@ -18,8 +18,7 @@ function Home() {
   const dispatch = useDispatch();
 
   const allDogs = useSelector((state) => state.dogs)
-  console.log(allDogs)
-  
+
 
   useEffect(() => {
     dispatch(getAllDogs());
