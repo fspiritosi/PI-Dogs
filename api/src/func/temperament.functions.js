@@ -2,14 +2,15 @@ const {getDogsApi} = require('./dog.functions.js')
 
 const getTemperaments = async () => {
     const apiData = await getDogsApi()
-    const allTemperament = apiData.map(dog => {return dog.temperament})
+    const allTemperament = apiData.map(dog => {return dog.temperament}).flat()
     
-    let splitedTemperament = allTemperament.map((ele) => {
-        if(ele == null) return "";
-        return ele.split(", ")
-    }).flat()
+    // let splitedTemperament = allTemperament.map((ele) => {
+    //      ele ? ele.split(", ") : ""
+    // }).flat()
     
-    let orderTemperament = splitedTemperament.sort()
+
+
+    let orderTemperament = allTemperament.sort()
 
     let reduceTemperament = []
 

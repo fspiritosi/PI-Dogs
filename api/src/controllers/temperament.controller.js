@@ -15,7 +15,9 @@ const createTemperaments = async (req, res) => {
             }
         })
 
-        res.status(200).json(allTemperament)
+        const returnTemperaments = await Temperament.findAll()
+        
+        res.status(200).json(returnTemperaments);
     } catch (error) {
         res.status(400).json({message: error.message})
     }

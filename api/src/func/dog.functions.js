@@ -11,9 +11,13 @@ const getDogsApi = async () => {
         .then(response => apiDogs.push(response.data))
         
         const flatApiDogs = apiDogs.flat()
+     
 
-        const mappedData = flatApiDogs.map((dog) => {
-          
+        const mappedData = flatApiDogs.map((dog) => {        
+
+            const dogsTemps = dog.temperament;
+            const temperament = dogsTemps ? dogsTemps.split(", ") : [];
+
           return {
             id: dog.id,
             name: dog.name,
@@ -21,7 +25,7 @@ const getDogsApi = async () => {
             height: dog.height.metric,
             weight: dog.weight.metric,
             life_span: dog.life_span,
-            temperament: dog.temperament
+            temperament: temperament
           };
         });
 
@@ -43,7 +47,27 @@ const getDogsDB = async () => {
                 }
             }
         });
-        return allDbDogs
+  
+        
+        const refactoringDogData = allDbDogs.map((dog) => {
+
+            const dogTemp = dog.temperaments
+            console.log(dogTemp)
+            const temperamentDog = dogTemp?.map(e => {return e.name})
+
+            return {
+              id: dog.id,
+              name: dog.name,
+              image: dog.image,
+              height: dog.height.metric,
+              weight: dog.weight.metric,
+              life_span: dog.life_span,
+              temperament: temperamentDog,
+            };
+        })
+
+        console.log(refactoringDogData);
+        return refactoringDogData;
     } catch (error) {
         throw new Error(error)
     }
