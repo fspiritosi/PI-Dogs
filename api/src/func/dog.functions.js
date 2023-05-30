@@ -18,14 +18,28 @@ const getDogsApi = async () => {
             const dogsTemps = dog.temperament;
             const temperament = dogsTemps ? dogsTemps.split(", ") : [];
 
+            const dogWeight = dog.weight.metric;
+           
+            const weightArr = dogWeight ? dogWeight.split(' - '): [];
+           
+            const weight = weightArr?.map(e => {
+                if(e === 'NaN') {
+                    return ;
+                }else{
+                    return parseInt(e);
+                }
+            });
+                 
+            
+
           return {
             id: dog.id,
             name: dog.name,
             image: dog.image,
             height: dog.height.metric,
-            weight: dog.weight.metric,
+            weight: weight,
             life_span: dog.life_span,
-            temperament: temperament
+            temperament: temperament,
           };
         });
 
@@ -54,18 +68,31 @@ const getDogsDB = async () => {
             const dogTemp = dog.temperaments
             const temperamentDog = dogTemp?.map(e => {return e.name})
 
+
+            const dogWeight = dog.weight;
+            
+            const weightArr = dogWeight ? dogWeight.split(",") : [];
+            
+            const weight = weightArr?.map((e) => {
+              if (e === "NaN") {
+                return ;
+              } else {
+                return parseInt(e);
+              }
+            });
+
             return {
               id: dog.id,
               name: dog.name,
               image: dog.image,
               height: dog.height.metric,
-              weight: dog.weight.metric,
+              weight: weight,
               life_span: dog.life_span,
               temperament: temperamentDog,
             };
         })
 
-        console.log(refactoringDogData);
+        
         return refactoringDogData;
     } catch (error) {
         throw new Error(error)
@@ -73,10 +100,10 @@ const getDogsDB = async () => {
 };
 
 const getDogByID = async (id) => {
-
+    
     const dbInfo = await getDogsDB()
-    const findDogInDb = dbInfo.find((item) => item.id,toString() === id)
-
+    const findDogInDb = dbInfo.find((item) => item.id.toString() === id)
+   
     if(findDogInDb){
         return findDogInDb; 
     }else{

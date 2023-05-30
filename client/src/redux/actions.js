@@ -1,4 +1,15 @@
-import {GET_DOGS, GET_TEMPERAMENTS, GET_DOGS_BY_NAME, FILTER_BY_ORIGIN, FILTER_BY_TEMPERAMENT} from './types.js'
+import {
+  GET_DOGS,
+  GET_TEMPERAMENTS,
+  GET_DOGS_BY_NAME,
+  FILTER_BY_ORIGIN,
+  FILTER_BY_TEMPERAMENT,
+  ORDER_BY_RAZA,
+  ORDER_BY_WEIGHT,
+  GET_DOG,
+  CREATE_DOG
+} from "./types.js";
+import axios from 'axios'
 
 export const getAllDogs = () => async (dispatch) => {
     const resp = await fetch('http://localhost:3001/dogs')
@@ -27,6 +38,15 @@ export const getDogsByName = (name) => async (dispatch) => {
     });
 }
 
+export const getDogById = (id) => async(dispatch) => {
+    const resp = await fetch(`http://localhost:3001/dogs/${id}`);
+    const data = await resp.json()
+    dispatch({
+        type: GET_DOG,
+        payload: data
+    })
+}
+
 export const filterDogsByOrigin = (data) => {
     return {
         type: FILTER_BY_ORIGIN,
@@ -39,4 +59,23 @@ export const filterDogsByTemperament = (data) =>  {
         type: FILTER_BY_TEMPERAMENT,
         payload: data
     }
+}
+
+export const orderByRaza = (data) => {
+    return {
+        type: ORDER_BY_RAZA,
+        payload: data
+    }
+}
+
+export const orderByWeight = (data) => {
+  return {
+    type: ORDER_BY_WEIGHT,
+    payload: data,
+  };
+};
+
+export const createDog = (data) => async (dispatch) => {
+    const post = await axios.post('http://localhost:3001/dogs', data);
+    return post
 }

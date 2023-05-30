@@ -41,9 +41,7 @@ const getDog = async (req, res) => {
 
 const createDog = async (req, res) => {
   const { name, image, height, weight, life_span, temperament } = req.body;
-
-  console.log(temperament)
-
+ 
   try {
 
     const apiDogs = await getDogsApi();
@@ -66,7 +64,6 @@ const createDog = async (req, res) => {
         temperament.map(async temp => {
           try {
             let tempe = await Temperament.findOrCreate({where: {name: temp}})
-            console.log(tempe)
             newDog.addTemperament(tempe[0])
           } catch (error) {
             throw new Error(error)

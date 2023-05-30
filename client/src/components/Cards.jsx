@@ -15,24 +15,18 @@ function Cards() {
   
   
     const dogss = useSelector((state) => state.dogs)
-
-    //const allTemperaments = useSelector((state) => state.allTemperaments)
-
- 
+    
     const allDogs = dogss
     console.log(allDogs)
-    
-    //const temperaments = allTemperaments[0]
-
+        
     const [items, setItems] = useState([...allDogs].splice(0, ITEMS_PAGE))
     const [currentPage, setCurrentPage] = useState(1);
-    // const [name, setName] = useState('')
+   
     console.log(items)
     const nextHandler = () => {
 
         const totalDogs = allDogs.length;
-        
-
+ 
         const nextPage = currentPage + 1;
 
         const firstIndex = nextPage * ITEMS_PAGE; 
@@ -56,8 +50,6 @@ function Cards() {
 
     }
 
-
-
     useEffect(()=> {
         setItems([...allDogs].splice(0, ITEMS_PAGE))
     }, [allDogs])
@@ -70,6 +62,7 @@ function Cards() {
                 items.map((dog) => {
                     return <Card 
                     key={dog.id}
+                    id={dog.id}
                     name={dog.name}
                     image={dog.image.url}
                     weight={dog.weight}

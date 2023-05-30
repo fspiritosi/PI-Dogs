@@ -12,7 +12,7 @@ function Navbar() {
             <li className={styles.active}>
                 <NavLink to='/detail'>Details</NavLink>
             </li>
-            <li><NavLink to='/about'>About Us</NavLink></li>
+            <li><NavLink to='/form'>Create Dog</NavLink></li>
             <li><NavLink to='/service'>Service</NavLink></li>
         </ul>
     </div>
