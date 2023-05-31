@@ -7,9 +7,9 @@ import {
   ORDER_BY_RAZA,
   ORDER_BY_WEIGHT,
   GET_DOG,
-  CREATE_DOG
+  RESET_DOG
 } from "./types.js";
-import axios from 'axios'
+
 
 export const getAllDogs = () => async (dispatch) => {
     const resp = await fetch('http://localhost:3001/dogs')
@@ -75,7 +75,9 @@ export const orderByWeight = (data) => {
   };
 };
 
-export const createDog = (data) => async (dispatch) => {
-    const post = await axios.post('http://localhost:3001/dogs', data);
-    return post
+export const resetDog = () => {
+    return {
+        type: RESET_DOG,
+        payload: []
+    }
 }

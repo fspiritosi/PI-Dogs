@@ -9,11 +9,7 @@ function Navbar() {
         <NavLink className={styles.logo}to='/home'>Home</NavLink>
         <div className={styles.menuToggle}></div>
         <ul className={styles.nav}>
-            <li className={styles.active}>
-                <NavLink to='/detail'>Details</NavLink>
-            </li>
             <li><NavLink to='/form'>Create Dog</NavLink></li>
-            <li><NavLink to='/service'>Service</NavLink></li>
         </ul>
     </div>
   )

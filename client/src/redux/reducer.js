@@ -1,4 +1,4 @@
-import { GET_DOGS, GET_TEMPERAMENTS, GET_DOGS_BY_NAME, FILTER_BY_ORIGIN, FILTER_BY_TEMPERAMENT, ORDER_BY_RAZA, ORDER_BY_WEIGHT, GET_DOG, CREATE_DOG} from './types.js'
+import { GET_DOGS, GET_TEMPERAMENTS, GET_DOGS_BY_NAME, FILTER_BY_ORIGIN, FILTER_BY_TEMPERAMENT, ORDER_BY_RAZA, ORDER_BY_WEIGHT, GET_DOG, RESET_DOG} from './types.js'
 const initialState = {
     dogs: [],
     allDogs: [],
@@ -50,9 +50,10 @@ function rootReducer(state = initialState, {type, payload}){
           ...state,
           dogs: [...payload],
         };
-      case CREATE_DOG:
+      case RESET_DOG:
         return {
-          ...state
+          ...state,
+          dog: payload
         }
       default:
         return state;

@@ -14,8 +14,7 @@ function Form() {
     const dispatch = useDispatch()
 
     const temperaments = useSelector((state) => state.temperaments)
-    const allDogs = useSelector((state) => state.allDogs)
-
+    
     const [errors, setErrors] = useState({})
     const [inputs, setInputs] = useState({
         name: "",
@@ -56,6 +55,15 @@ function Form() {
 
     const handleTemperamentChange = (e) => {   
 
+        addOrDeleteTemperament(e)
+        
+        // if(inputs.temperament.length === 0){
+        //     unCheck(e)
+        // }
+
+    }
+
+    const addOrDeleteTemperament = (e) => {
         if(e.target.checked && inputs.temperament.length === 0 ){
             setInputs({
                 ...inputs,
@@ -73,17 +81,18 @@ function Form() {
                 temperament: filterTemp
             })
         }
-
-        
     }
 
-    console.log(inputs)
+    // const unCheck = (e) => {
+    //     return e.target.checked=false
+        
+    // }
+    // console.log(inputs)
    
     
     const handleSubmit = async (e) => {
         e.preventDefault();
         const verify = validate(inputs);
-        console.log(verify)
         if(Object.keys(verify).length === 0){
 
             axios.post('http://localhost:3001/dogs', inputs)
@@ -111,6 +120,7 @@ function Form() {
     
     const handleReset = (e) => {
         e.preventDefault(e);
+
         setInputs({
             name: "",
             image: "",
@@ -119,6 +129,9 @@ function Form() {
             life_span: "",
             temperament: []
         });
+        setErrors({})
+
+        
     };
 
     useEffect(() => {dispatch(getTemperaments())}, [dispatch])
@@ -150,13 +163,13 @@ function Form() {
             </div>
             <div className={styles.formSection}>
                 <label >Min Weight</label>
-                <input type="number" id="minW" onChange={(e) => handleWeightChange(e)} value={inputs.weight}/>
+                <input type="number" id="minW" onChange={(e) => handleWeightChange(e)} value={inputs.weight[0]}/>
                 <br />
                 <span>{errors.weight}</span>    
             </div>
             <div className={styles.formSection}>
                 <label >Max Weight</label>
-                <input type="number" id="maxW" onChange={(e) => handleWeightChange(e)} value={inputs.weight}/>
+                <input type="number" id="maxW" onChange={(e) => handleWeightChange(e)} value={inputs.weight[1] || ''}/>
                 <br />
                 <span>{errors.weight}</span>
             </div>
@@ -167,7 +180,7 @@ function Form() {
                 <span>{errors.life_span}</span>
             </div>
             <div className={styles.formSection}>
-                <h3>Temeperaments</h3>
+                <h3>Temperaments</h3>
                 <div className={styles.tempContainer}>
                     {temperaments?.map((temp) => (
                         <div className={styles.tempItem} key={temp.id}>

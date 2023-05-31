@@ -7,4 +7,4 @@ export const FILTER_BY_ORIGIN = "FILTER_BY_ORIGIN";
 export const FILTER_BY_TEMPERAMENT = "FILTER_BY_TEMPERAMENT";
 export const ORDER_BY_RAZA = "ORDER_BY_RAZA";
 export const ORDER_BY_WEIGHT = "ORDER_BY_WEIGHT";
-export const CREATE_DOG = 'CREATE_DOG'
+export const RESET_DOG = "RESET_DOG"
