@@ -97,8 +97,7 @@ function Form() {
 
             axios.post('http://localhost:3001/dogs', inputs)
             alert(`${inputs.name} create successfully`)
-            // .then(res => alert(`${res.data.name} create successefully`))
-            // .catch(err  => alert(err.response.data.error))
+
             setInputs({
                 name: "",
                 image: "",
@@ -143,41 +142,43 @@ function Form() {
             <h2>Create your Dog</h2>
         </div>
         <form action="" onSubmit={(e) => handleSubmit(e)} className={styles.formBody}>
-            <div className={styles.formSection}>
-                <label > Name</label>
-                <input type="text" name='name' onChange={(e) => handleChange(e)} value={inputs.name} />
-                <br />
-                <span>{errors.name}</span>
-            </div>
-            <div className={styles.formSection}>
-                <label>Image</label>
-                <input type="text" name='image' onChange={(e) => handleChange(e)} value={inputs.image}/>
-                <br />
-                <span>{errors.image}</span>
-            </div>
-            <div className={styles.formSection}>
-                <label >Height</label>
-                <input type="text" placeholder='minimum height - maximum height'  name="height" onChange={(e) => handleChange(e)} value={inputs.height}/>
-                <br />
-                <span>{errors.height}</span>
-            </div>
-            <div className={styles.formSection}>
-                <label >Min Weight</label>
-                <input type="number" id="minW" onChange={(e) => handleWeightChange(e)} value={inputs.weight[0]}/>
-                <br />
-                <span>{errors.weight}</span>    
-            </div>
-            <div className={styles.formSection}>
-                <label >Max Weight</label>
-                <input type="number" id="maxW" onChange={(e) => handleWeightChange(e)} value={inputs.weight[1] || ''}/>
-                <br />
-                <span>{errors.weight}</span>
-            </div>
-            <div className={styles.formSection}>
-                <label >Life_span</label>
-                <input type="number" name='life_span' onChange={(e) => handleChange(e)} value={inputs.life_span} />
-                <br />
-                <span>{errors.life_span}</span>
+            <div>
+                <div className={styles.formSection}>
+                    <label > Name</label>
+                    <input className={!errors.name ? '' : styles.inputsBad} type="text" name='name' onChange={(e) => handleChange(e)} value={inputs.name} />
+                    <br />
+                    <span>{errors.name}</span>
+                </div>
+                <div className={styles.formSection}>
+                    <label>Image</label>
+                    <input className={!errors.image ? '' : styles.inputsBad} type="text" name='image' onChange={(e) => handleChange(e)} value={inputs.image}/>
+                    <br />
+                    <span>{errors.image}</span>
+                </div>
+                <div className={styles.formSection}>
+                    <label >Height</label>
+                    <input className={!errors.height ? '' : styles.inputsBad} type="text" placeholder='minimum height - maximum height'  name="height" onChange={(e) => handleChange(e)} value={inputs.height}/>
+                    <br />
+                    <span>{errors.height}</span>
+                </div>
+                <div className={styles.formSection}>
+                    <label >Min Weight</label>
+                    <input className={!errors.weight ? '' : styles.inputsBad} type="number" id="minW" onChange={(e) => handleWeightChange(e)} value={inputs.weight[0]}/>
+                    <br />
+                    <span>{errors.weight}</span>    
+                </div>
+                <div className={styles.formSection}>
+                    <label >Max Weight</label>
+                    <input className={!errors.weight ? '' : styles.inputsBad} type="number" id="maxW" onChange={(e) => handleWeightChange(e)} value={inputs.weight[1] || ''}/>
+                    <br />
+                    <span>{errors.weight}</span>
+                </div>
+                <div className={styles.formSection}>
+                    <label >Life_span</label>
+                    <input className={!errors.life_span ? '' : styles.inputsBad} type="number" name='life_span' onChange={(e) => handleChange(e)} value={inputs.life_span} />
+                    <br />
+                    <span>{errors.life_span}</span>
+                </div>
             </div>
             <div className={styles.formSection}>
                 <h3>Temperaments</h3>

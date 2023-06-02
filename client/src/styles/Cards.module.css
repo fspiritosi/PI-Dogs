@@ -32,9 +32,12 @@
     margin-right: 5px;
     font-weight: bold;
     font-size: 0.9rem;
+    border: none;
+    box-shadow: 3px 5px 10px rgba(0,0,0,0.8);
 }
 
 .listPageContainer .activePage {
-    background-color: rgb(235, 171, 87);
+    background-color: #E58843;
+    
 
 }

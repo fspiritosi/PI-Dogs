@@ -1,7 +1,8 @@
 .filterContainer {
+    position: relative;
     width: 100%;
     height: 60px;
-    background-color: #ea9e6f;
+    background-color: #e58843;
     display: flex;
     justify-content: space-around;
     align-items: center;

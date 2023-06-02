@@ -6,7 +6,9 @@ import styles from '../styles/Navbar.module.css'
 function Navbar() {
   return (
     <div className={styles.header}>
-        <NavLink className={styles.logo}to='/home'>Home</NavLink>
+        <NavLink className={styles.logo}to='/home'>
+          <div></div>
+        </NavLink>
         <div className={styles.menuToggle}></div>
         <ul className={styles.nav}>
             <li><NavLink to='/form'>Create Dog</NavLink></li>

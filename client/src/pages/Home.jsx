@@ -6,6 +6,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import Navbar from '../components/Navbar.jsx'
 import Cards from '../components/Cards.jsx'
 import Filterbar from '../components/Filterbar.jsx'
+import Loader from '../components/Loader.jsx';
+
+//--- Styles Imports ---//
 import styles from '../styles/Home.module.css'
 
 //--- Complements Imports ---//
@@ -26,13 +29,14 @@ function Home() {
   }, [dispatch])
 
   return (
-    <div>
+    <div className={styles.homeContainer}>
         <div className={styles.headerContainer}>
           <Navbar></Navbar>
           <Filterbar></Filterbar>
         </div>
-        
-        {allDogs.length < 1 ? <p>...Loading</p>: <Cards />}
+        <div className={styles.cardContainer}>
+          {allDogs.length < 1 ? <Loader/> : <Cards />}
+        </div>
         
         
     </div>

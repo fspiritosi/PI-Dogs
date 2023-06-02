@@ -7,17 +7,20 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    z-index: 10000;
-    background-color: #202020;
-    /* backdrop-filter: blur(20px); */
+    background-color: #0C395A;
+    
 }
 
 .header .logo {
     position: relative;
-    color: #fff;
-    text-decoration: none;
-    font-size: 2em;
-    font-weight: 700;
+}
+
+.header .logo div {
+    width: 75px;
+    height: 75px;
+    background-image: url('../assets/imgPerroconLentes.jpg');
+    background-size: contain;
+    border-radius: 50%;
 }
 
 .header ul {
@@ -34,10 +37,10 @@
     text-decoration: none;
     color: #fff;
     font-size: 1.25em;
-    font-weight: 500;
+    font-weight: bold;
 }
 
 .header ul li.active a,
 .header ul li:hover a {
-    color: #ea9e6f;
+    color: #e58843;
 }
