@@ -31,28 +31,30 @@ function Detail() {
             : 
             <div className={styles.cardContainer}>
               <img src={image} alt="" />
-              <div>
-                <h2>{name}</h2>
-              <div>
-                <h4>Weight:</h4>
-                <p>{weight}</p>
-              </div>
-              <div>
-                <h4>Height:</h4>
-                <p>{height}</p>
-              </div>
-              <div>
-                <h4>Temperaments</h4>
-                <p>{temperament}</p>
-              </div>
-              <div>
-                <h4>Life Span:</h4>
-                <p>{life_span}</p>
-              </div>
+              <div className={styles.dataContainer}>
+                  <div>
+                    <h2>{name}</h2>
+                    <div>
+                      <h4>Weight:</h4>
+                      <p>{weight} Kg</p>
+                    </div>
+                    <div>
+                      <h4>Height:</h4>
+                      <p>{height} Cm</p>
+                    </div>
+                    <div>
+                      <h4>Temperaments</h4>
+                      <p>{temperament}</p>
+                    </div>
+                    <div>
+                      <h4>Life Span:</h4>
+                      <p>{life_span}</p>
+                    </div>
+                  </div>
               </div>
             </div>
           }
-        <NavLink to='/home'>
+        <NavLink className={styles.button} to='/home'>
             <Button textButton = "Home" onClick={()=> funcResetDog()}/>
         </NavLink>
         
