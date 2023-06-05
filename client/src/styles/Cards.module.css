@@ -41,3 +41,23 @@
     
 
 }
+
+@media (max-width:  768px) {
+    .cards_container {
+           
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: 1fr;
+            gap: 25px 15px;
+            width: 100%;
+        }
+}
+
+@media (max-width: 425px) {
+    .cards_container {
+
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: 1fr;
+        gap: 25px 15px;
+        width: 100%;
+    }
+}

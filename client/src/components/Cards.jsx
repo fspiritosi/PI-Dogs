@@ -68,7 +68,7 @@ function Cards() {
                 }
             </div>
             <div className={styles.paginateContainer}>
-                <Button onClick={prevHandler} textButton = 'Prev'/>
+                <Button  onClick={prevHandler} textButton = 'Prev'/>
                 
                     {(currentPage - 1 > 0) ?  
                         <div className={styles.listPageContainer}>
@@ -85,7 +85,7 @@ function Cards() {
                         </div>
                     }
               
-                <Button onClick={nextHandler} textButton ='Next' />
+                <Button  onClick={nextHandler} textButton ='Next' />
             </div>
         </div>
   )

@@ -1,0 +1,21 @@
+
+
+
+.cardDetailConteiner{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-image: url('../assets/backgroundImg.jpg'); */
+}
+
+
+.cardContainer {
+    display: flex;
+}
+
+.cardContainer img  {
+    width: 500px;
+    height: 500px;
+    border-radius: 30px;
+}

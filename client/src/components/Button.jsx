@@ -1,12 +1,12 @@
 import React from 'react'
 import styles from '../styles/Button.module.css'
 
-function Button(props) {
+function Button({onClick, type, textButton}) {
 
   return (
     <>
-        <button className={styles.btnInfo} onClick={props.onClick} type={props.type}>
-            {props.textButton}
+        <button className={styles.btnSuccesses} onClick={onClick} type={type}>
+            {textButton}
         </button>
     </>
   )

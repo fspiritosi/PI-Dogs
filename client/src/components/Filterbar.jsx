@@ -97,50 +97,56 @@ function Filterbar() {
 
   return (
     <div className={styles.filterContainer}>
-        <Searchbar/>
-        <div>
-          <section>
-            <h4>Temeperaments</h4>
-            <select onChange={(e) => handleFilterByTemperament(e)}>
-              <optgroup label='Temperaments'>
-                <option value="all">All</option>
-              {temperaments?.map((temp) => (<option value={temp.name} key={temp.id}>{temp.name}</option>))}
-              </optgroup>
-            </select>
-            
-          </section>
+        <div className={styles.search}>
+         <Searchbar/>
         </div>
-        <div>
-          <section>
-            <h4>DB or API</h4>
-            <select onChange={(e) => handlefilterByOrigin(e)}>
-              <optgroup rating='origin' label='Origin'>
-                <option value='all'>All</option>
-                <option value="db">Data Base</option>
-                <option value="api">API</option>
-              </optgroup>
-            </select>
-          </section>
-        </div>
-        <div> <section>
-            <h4>Raza</h4>
-            <select onChange={(e) => handleOrderByRaza(e)}>
-              <optgroup rating='origin' label='Origin'>
-                <option value='a'>A - Z</option>
-                <option value="z">Z - A</option>
-              </optgroup>
-            </select>
-          </section></div>
-        <div color='#fff'>
-          <section>
-          <h4>Weight</h4>
-            <select onChange={(e) => handleOrderByWeight(e)}>
-              <optgroup rating='origin' label='Weight'>
-                <option value='light'>Light</option>
-                <option value="heavy">heavy</option>
-              </optgroup>
-            </select>
-          </section>
+        <div className={styles.filters}>
+          <div className={styles.sectionContainer}>
+              <p>Temperaments</p>
+              <section className={styles.section}>
+                {/* <h4>Temeperaments</h4> */}
+                <select className={styles.select} onChange={(e) => handleFilterByTemperament(e)}>
+                  <optgroup label='Select Temperament' >
+                    <option value="all">Temperaments</option>
+                  {temperaments?.map((temp) => (<option value={temp.name} key={temp.id}>{temp.name}</option>))}
+                  </optgroup>
+                </select> 
+              </section>
+          </div>
+          <div className={styles.sectionContainer}>
+            <p>Origin</p>
+            <section className={styles.section}>
+              <select className={styles.select} onChange={(e) => handlefilterByOrigin(e)}>
+                <optgroup rating='origin' label='Origin'>
+                  <option value='all'>All</option>
+                  <option value="db">Data Base</option>
+                  <option value="api">API</option>
+                </optgroup>
+              </select>
+            </section>
+          </div>
+          <div className={styles.sectionContainer}>
+            <p>Name</p>
+            <section className={styles.section}>
+              <select className={styles.select}  onChange={(e) => handleOrderByRaza(e)}>
+                <optgroup rating='Name' label='Name Order'>
+                  <option value='a'>A - Z</option>
+                  <option value="z">Z - A</option>
+                </optgroup>
+              </select>
+            </section>
+          </div>
+          <div className={styles.sectionContainer}>
+            <p>Heigth</p>
+            <section className={styles.section} >
+              <select className={styles.select} onChange={(e) => handleOrderByWeight(e)}>
+                <optgroup rating='origin' label='Weight'>
+                  <option value='light'>Light</option>
+                  <option value="heavy">heavy</option>
+                </optgroup>
+              </select>
+            </section>
+          </div>
         </div>
     </div>
   )

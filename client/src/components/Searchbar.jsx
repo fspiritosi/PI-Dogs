@@ -1,14 +1,12 @@
 import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
 import { getDogsByName } from '../redux/actions.js'
-
-
-
+import styles from '../styles/Searchbar.module.css'
 
 function Searchbar() {
 
   const dispatch = useDispatch()
-
+ 
   const [name, setName] = useState('')
 
   const handleInputChange = (e) => {
@@ -24,13 +22,16 @@ function Searchbar() {
   }
 
   return (
-    <div>
-      <form onSubmit={(e) => handleSubmit(e)}>
+    
+      <form onSubmit={(e) => handleSubmit(e)} className={styles.formContainer}>
         <input type="text" placeholder='Search...' value={name} onChange={(e) => handleInputChange(e)}/>
-        <button>Find</button>
+        <button>
+          <i className="fa fa-search" aria-hidden="true"></i>
+        </button>
       </form>
-    </div>
+    
   )
 }
 
 export default Searchbar
+

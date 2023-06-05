@@ -23,7 +23,10 @@ function Card(props) {
             <img src={props.image} alt="not found" width='400px' height='auto'/>
             <div className={styles.card_data}>
               <h3 className={styles.card_title}>{props.name}</h3>
-              <h5 className={styles.card_weigth}>Weigth: {props.weight[0]} to {props.weight[1]} Kg</h5>
+              <div>
+                <h4 className={styles.weigthTitle}>Weigth:</h4>
+                <h5 className={styles.card_weigth}>{props.weight[0]} to {props.weight[1]} Kg</h5>
+              </div>
               <div className={styles.card_temperament}>
                 <h6>Temperament:</h6> 
                 <div className={styles.temperamentConteiner}>
