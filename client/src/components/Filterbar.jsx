@@ -14,7 +14,7 @@ function Filterbar() {
 
 
   const handlefilterByOrigin = (e) => {
-    // console.log(e.target.value)
+    
     const dataOptions = ['all', 'db', 'api']
 
     const dataFilter = e.target.value
