@@ -80,6 +80,7 @@ const getDogsDB = async () => {
                 return parseInt(e);
               }
             });
+            
 
             return {
               id: dog.id,

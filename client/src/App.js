@@ -4,6 +4,7 @@ import LandingPage from "./pages/LandingPage";
 import Home from './pages/Home.jsx'
 import Detail from "./pages/Detail";
 import Form from "./pages/Form";
+import Notfound from "./pages/Notfound";
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/home" component={Home} />
         <Route path='/detail' component={Detail}/>
         <Route path='/form' component={Form}/>
+        <Route path={"*"} component={Notfound} />
       </Switch>
     </div>
   );
